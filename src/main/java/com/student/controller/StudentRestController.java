@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,12 +34,19 @@ public class StudentRestController {
 	}
 
 	@PutMapping("/api/updateStudent/{id}")
-	public ResponseEntity<List<StudentResponse>> updateStudent(@PathVariable String id, @RequestBody StudentRequest req) {
+	public ResponseEntity<List<StudentResponse>> updateStudent(@PathVariable String id,
+			@RequestBody StudentRequest req) {
 		req.setId(id);
 
 		List<StudentResponse> response = studentService.updateStudent(req);
 		return ResponseEntity.ok(response);
 
+	}
+
+	@DeleteMapping("/api/studentdel/{id}")
+	public String deleteStudent(@PathVariable("id") String studId) {
+		studentService.deleteStudent(studId);
+		return "Student Deleted Sucessfully";
 	}
 
 }
