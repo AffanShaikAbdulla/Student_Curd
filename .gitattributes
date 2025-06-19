@@ -1,0 +1,26 @@
+# Office temporary files
+~$*
+*.tmp
+
+# System files
+NTUSER.DAT*
+*.TM.blf
+*.cnpf
+
+# Executables
+*.exe
+*.jar
+
+# Media/torrent files
+*.mkv
+*.torrent
+
+# IDE/editor files
+.idea/
+*.osp
+
+# System folders
+Favorites/
+Links/
+Music/
+IntelGraphicsProfiles/
